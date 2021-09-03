@@ -1,15 +1,19 @@
 package com.ecommerce.mxapichallenge.domain.model.aggregates;
 
 import com.ecommerce.mxapichallenge.domain.model.entities.CartItem;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
-import javax.validation.constraints.NotNull;
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 @Data
+@NoArgsConstructor
 public class Cart {
-    @NotNull
+    @Id
+    private String id;
+    @Embedded
     private CartId cartId;
+    @OneToMany
     private List<CartItem> items;
 }

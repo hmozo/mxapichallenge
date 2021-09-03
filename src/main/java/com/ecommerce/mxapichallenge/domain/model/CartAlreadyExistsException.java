@@ -1,4 +1,4 @@
-package com.ecommerce.mxapichallenge.domain.model.exceptions;
+package com.ecommerce.mxapichallenge.domain.model;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

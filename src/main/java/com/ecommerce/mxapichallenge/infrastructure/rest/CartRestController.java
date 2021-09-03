@@ -4,7 +4,7 @@ import com.ecommerce.mxapichallenge.application.CartCommandService;
 import com.ecommerce.mxapichallenge.application.CartQueryService;
 import com.ecommerce.mxapichallenge.domain.model.aggregates.Cart;
 import com.ecommerce.mxapichallenge.domain.model.aggregates.CartId;
-import com.ecommerce.mxapichallenge.domain.model.exceptions.CartNotExistException;
+import com.ecommerce.mxapichallenge.domain.model.CartNotExistException;
 import com.ecommerce.mxapichallenge.infrastructure.rest.dto.CartRequestDto;
 import com.ecommerce.mxapichallenge.infrastructure.rest.dto.CartResponseDto;
 import org.springframework.beans.BeanUtils;

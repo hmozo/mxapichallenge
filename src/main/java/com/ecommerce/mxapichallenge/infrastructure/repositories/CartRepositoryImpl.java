@@ -3,28 +3,34 @@ package com.ecommerce.mxapichallenge.infrastructure.repositories;
 import com.ecommerce.mxapichallenge.domain.model.CartRepository;
 import com.ecommerce.mxapichallenge.domain.model.aggregates.Cart;
 import com.ecommerce.mxapichallenge.domain.model.aggregates.CartId;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 @Repository
 public class CartRepositoryImpl implements CartRepository {
 
-    private static List<Cart> carts= new ArrayList<>();
+    @Autowired
+    private CartJpaRepository cartJpaRepository;
+
+    @Autowired
+    private CartItemJpaRepository cartItemJpaRepository;
 
     @Override
     public Optional<Cart> findCart(String cartId) {
-        return carts.stream().filter(
-                cart->cart.getCartId().getId().equals(cartId)
-        ).findFirst();
+        //return Optional.empty();
+        return cartJpaRepository.findByCartIdId(cartId);
     }
 
     @Override
     public CartId saveCart(Cart cart) {
-        carts.add(cart);
-        return cart.getCartId();
+        cart.getItems().stream()
+                .forEach(item->{cartItemJpaRepository.save(item);});
+
+        Cart savedCart= cartJpaRepository.save(cart);
+        return savedCart.getCartId();
     }
 }

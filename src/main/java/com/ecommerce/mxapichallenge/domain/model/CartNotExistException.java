@@ -1,4 +1,4 @@
-package com.ecommerce.mxapichallenge.domain.model.exceptions;
+package com.ecommerce.mxapichallenge.domain.model;
 
 public class CartNotExistException extends RuntimeException{
     public CartNotExistException(String message) {

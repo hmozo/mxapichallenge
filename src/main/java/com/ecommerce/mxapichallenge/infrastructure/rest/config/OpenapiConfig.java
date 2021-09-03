@@ -1,4 +1,4 @@
-package com.ecommerce.mxapichallenge.infrastructure.rest.openapi;
+package com.ecommerce.mxapichallenge.infrastructure.rest.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
